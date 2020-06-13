@@ -30,6 +30,6 @@ export class CountryAddComponent implements OnInit {
       data => this.country = data,
     );
 
-    this.countriesService.countryCreated.next(this.country);
+    this.countriesService.countryCreated.next();
   }
 }

@@ -17,8 +17,11 @@ export class CountriesAllComponent implements OnInit {
     this.countriesService.getCountries().subscribe(
       data => this.countries = data
     );
+
     this.countriesService.countryCreated.subscribe(
-      data => this.countries.push(data)
+      () => this.countriesService.getCountries().subscribe(
+        data => this.countries = data
+      )
     );
   }
 
