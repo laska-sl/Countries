@@ -1,0 +1,31 @@
+<div class="text-center">
+    <h1>Adding new country</h1>
+</div>
+<form (ngSubmit)="createCountry()" #addingForm="ngForm">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input class="form-control" type="text" name="name" id="name" required [(ngModel)]="country.name">
+    </div>
+    <div class="form-group">
+        <label for="code">Code</label>
+        <input class="form-control" type="text" name="code" id="code" required [(ngModel)]="country.code">
+    </div>
+    <div class="form-group">
+        <label for="capital">Capital</label>
+        <input class="form-control" type="text" name="capital" id="capital" required [(ngModel)]="country.capitalName">
+    </div>
+    <div class="form-group">
+        <label for="area">Area</label>
+        <input class="form-control" type="number" min="0" name="area" id="area" required [(ngModel)]="country.area">
+    </div>
+    <div class="form-group">
+        <label for="population">Population</label>
+        <input class="form-control" type="Text" oninput="this.value=this.value.replace(/[^0-9]/g,'');" name="population"
+            id="population" required [(ngModel)]="country.population">
+    </div>
+    <div class="form-group">
+        <label for="region">Region</label>
+        <input class="form-control" type="text" name="region" id="region" required [(ngModel)]="country.regionName">
+    </div>
+    <button class="btn btn-success" type="submit" [disabled]="!addingForm.valid">Add</button>
+</form>

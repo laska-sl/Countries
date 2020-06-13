@@ -1,0 +1,25 @@
+<div class="container mt-5">
+    <div class="text-center">
+        <h1>Countries in database</h1>
+    </div>
+    <div class="container">
+        <table class="table">
+            <tr>
+                <th>Name</th>
+                <th>Code</th>
+                <th>Capital</th>
+                <th>Area</th>
+                <th>Population</th>
+                <th>Region</th>
+            </tr>
+            <tr *ngFor="let country of countries">
+                <td>{{country.name}}</td>
+                <td>{{country.code}}</td>
+                <td>{{country.capitalName}}</td>
+                <td>{{country.area}}</td>
+                <td>{{country.population}}</td>
+                <td>{{country.regionName}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

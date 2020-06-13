@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-6">
+    <div class="container mt-5" [ngSwitch]="mode">
+      <div class="container">
+        <form #countryForm="ngForm" *ngSwitchCase="Modes.searching">
+          <div class="text-center">
+            <h1>Search for country in Internet</h1>
+          </div>
+          <div class="form-group">
+            <input class="form-control" type="text" [(ngModel)]="searchedCountryName" name="country" required>
+          </div>
+          <button class=" btn btn-success" [disabled]="!countryForm.valid" type="submit"
+            (click)="searchCountry()">Search</button>
+        </form>
+      </div>
+
+      <div class="container mt-3" *ngSwitchCase="Modes.asking">
+        <h3>There is no country with such name. Do you want to add one?</h3>
+        <button class="btn btn-primary" (click)="mode=Modes.adding">Yes</button> |
+        <button class="btn btn-danger" (click)="mode=Modes.searching">No</button>
+      </div>
+
+      <div class="container" *ngSwitchCase="Modes.adding">
+        <app-country-add [countryName]="searchedCountryName"></app-country-add>
+        <button class="btn btn-danger mt-1" (click)="mode=Modes.searching">Cancel</button>
+      </div>
+
+      <div *ngIf="country && mode!=Modes.asking && mode!=Modes.adding">
+        <app-country [country]="country"></app-country>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-6">
+    <app-countries-all></app-countries-all>
+  </div>
+</div>
