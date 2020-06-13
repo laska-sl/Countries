@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CountriesService {
   baseUrl = environment.apiUrl + 'countries/';
-  countryCreated = new Subject<Country>();
+  countryCreated = new Subject();
 
   constructor(private http: HttpClient) { }
 
